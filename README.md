@@ -43,7 +43,9 @@ Através dos eventos recebidos via **api** do **Stripe**, o **Ignews** identific
 
 ### Sessão do usuário (GitHub)
 
-A sessão do usuário fica salva no browser, sem a necessidade de acessar o modal de login do Github novamente. No canto superior direito, o ícone fica na cor verde seguido do nome do usuário, indicando que a sessão está ativa. Após a aplicação segue seu fluxo normal.
+A sessão do usuário fica salva no browser, sem a necessidade de acessar o modal de login do Github novamente. No canto superior direito, o ícone fica na cor verde seguido do nome do usuário, indicando que a sessão está ativa. Após a aplicação segue seu fluxo normal. 
+
+Caso o usuário clique novamente para fazer uma assinatura e ele ja possuir uma assinatura ativa, a aplicação não o redireciona para compra, evitando problemas de assinaturas duplicadas. O usuário é redirecinado para a página de conteúdos exclusivos automaticamente.
 
 ### SSR (server-side rendering)
 
