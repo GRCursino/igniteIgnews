@@ -1,34 +1,74 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ig.news
 
-## Getting Started
+A aplicação ***Ignews*** foi desenvolvida com parceria da ***RocketSeat*** utilizando o framework **Next.js**, adotando a estratégia de renderização em **"SSG"** para obter maior performance. Consiste em uma página no estilo blog, listando posts que são consumidos do **Prismic CMS.**. Porém para o usuário poder consumir este conteúdo, o mesmo deverá estar autenticado com o **GitHub** e com inscrição ativa no **Stripe**, **API** para pagamentos via cartão.
 
-First, run the development server:
+As informações do usuários são salvas no banco **FaunaDB**. Este é um banco de dados NoSQL, otimizado para aplicações ***serverless***, que é um modelo de desenvolvimento nativo em nuvem para criação e execução de aplicações sem o gerenciamento de servidores(back-end) como o ***Ignews***
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Importante
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A grande vantagem de utilizar SSG no Next.js é que a página ja é gerada de forma estática no momento do build da aplicação, assim quando acessada, a página já está pronta pra ser exibida no browser.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+O benefício de adotar esta estratégia é que a página por ja estar com o seu "core" pronto, ela é indexada em primeiras colocações por motores de busca como **Google, Bing, etc ...**
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Então páginas construídas desta forma, possuem grande performance, em outras palavras, carregam mais rápido pelo browser e aparecem primeiro em buscas, tornando sua visibilidade maior.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Um exemplo prático disto seria um **e-commerce**, a página do ***Magazine Luiza*** utiliza ***Next*** com ***SSG***, automaticamente se a visibilidade é maior, os acessos também são maiores e conversão dos acessos em vendas cresce exponencialmente.
 
-## Learn More
+## Tecnlogias
 
-To learn more about Next.js, take a look at the following resources:
+  - React
+  - Next.js
+  - FaunaDB
+  - Prismic CMS
+  - Stripe
+  - Typescript
+  - SASS ( CSS )
+  - Date-fns
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Funcionamento
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Autenticação com GitHub
 
-## Deploy on Vercel
+<p align="center">
+  <img src="src/assets/to_readme/login.gif">
+</p>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Comprando via cartão com Stripe
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Através dos eventos recebidos via **api** do **Stripe**, o **Ignews** identifica que a compra foi bem sucedida e redireciona o usuário para a página de posts, podendo agora consumir o conteúdo exclusivo.
+
+<p align="center">
+  <img src="src/assets/to_readme/stripe.gif">
+</p>
+
+### Sessão do usuário (GitHub)
+
+A sessão do usuário fica salva no browser, sem a necessidade de acessar o modal de login do Github novamente. No canto superior direito, o ícone fica na cor verde seguido do nome do usuário, indicando que a sessão está ativa. Após a aplicação segue seu fluxo normal.
+
+### SSR (server-side rendering)
+
+As páginas que não são construídas usando **SSG**, utilizam a estratégia de renderização ***SSR***, basicamente quando os motores de busca quando vão indexar as páginas web, eles não esperam por exemplo que uma chamada api seja concluída, pois o servidor que responderá essa chamada pode estar com lentidão. Com o processo de ***SSR*** (server-side rendering) nós conseguimos fazer com que o NodeJS faça a renderização do nosso componente antes da resposta ao cliente chegar, ou seja, todo conteúdo necessário para o componente ser exibido em tela chega pronto ao front-end, tornando a aplicação performática e melhor indexada como citado acima.
+
+<p align="center">
+  <img src="src/assets/to_readme/aproveitando_sessao.gif">
+</p>
+
+### Preview do conteúdo exclusivo
+
+Caso o cliente não possua uma assinatura do ***Ignews*** ele acessa um página com uma prévia do conteúdo, se o mesmo se interessar e quiser realizar uma assinatura a página o redireciona para a "home" através de um botão na parte inferior, ou se um usuário que ja possui assinatura ativa acessar por ventura uma página "preview", ao realizar a autenticação, o conteúdo é liberado automaticamente.
+
+<p align="center">
+  <img src="src/assets/to_readme/preview.gif">
+</p>
+
+<p align="center">
+  <img src="src/assets/to_readme/liberando_conteudo.gif">
+</p>
+
+## Performance
+
+Através das ferramentas de desenvolvedores do browser é possível verificar que usando ***Next.js*** o carregamento não é refeito sem necessidade. O resultado disso é que o cliente acessa a página muito mais rápido.
+
+<p align="center">
+  <img src="src/assets/to_readme/kbits.gif">
+</p>

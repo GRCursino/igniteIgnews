@@ -1,0 +1,58 @@
+.headerContainer {
+    height: 5rem;
+    border-bottom: 1px solid var(--gray-800);
+}
+
+.headerContent {
+    max-width: 1120px; ; // pra ficar no centro
+    height: 5rem; 
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    display: flex;
+    align-items: center;
+
+    nav {
+        margin-left: 5rem;
+        height: 5rem; // assim ele ocupa o tamanho total do container, o que facilita na hora de colocar a barra amarela na parte inferir quando uma âncore estiver selecionada
+
+        a {
+            display: inline-block;
+            position: relative;
+            padding: 0 0.5rem;
+            height: 5rem;
+            line-height: 5rem; // colocando a linha do mesmo tamanho, o conteúdo sempre ficará ao centro
+            color: var(--gray-300);
+
+            transition: color 0.2s;
+
+            & + a {
+                margin-left: 2rem;
+            }
+
+            &:hover {
+                color: var(--white);
+            }
+
+            &.active {
+                color: var(--white);
+                font-weight: bold;
+            }
+
+            &.active::after { // usando o after, após o link estar selecionado ele inclui algum conteúdo após essa tag (a barra na parte inferior), indicando que ele está selecionado
+                content: ''; // configuração obrigatória
+                height: 3px;
+                border-radius: 3px 3px 0 0;
+                width: 100%;
+                position: absolute;
+                bottom: 1px;
+                left: 0;
+                background: var(--yellow-500);
+            }
+        }
+    }
+
+    button {
+        margin-left: auto; // colocando o botão totalmente para direita
+    }
+}
