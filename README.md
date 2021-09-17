@@ -1,6 +1,6 @@
 # Ig.news
 
-A aplicação ***Ignews*** foi desenvolvida com parceria da ***RocketSeat*** utilizando o framework **Next.js**, adotando a estratégia de renderização em **"SSG"** para obter maior performance. Consiste em uma página no estilo blog, listando posts que são consumidos do **Prismic CMS.**. Porém para o usuário poder consumir este conteúdo, o mesmo deverá estar autenticado com o **GitHub** e com inscrição ativa no **Stripe**, **API** para pagamentos via cartão.
+A aplicação ***Ignews*** foi desenvolvido com parceria da ***RocketSeat*** utilizando o framework **Next.js**, adotando a estratégia de renderização em **"SSG"** para obter maior performance. Consiste em uma página no estilo blog, listando posts que são consumidos do **Prismic CMS.**. Porém para o usuário poder consumir este conteúdo, o mesmo deverá estar autenticado com o **GitHub** e com inscrição ativa no **Stripe**, **API** para pagamentos via cartão.
 
 As informações do usuários são salvas no banco **FaunaDB**. Este é um banco de dados NoSQL, otimizado para aplicações ***serverless***, que é um modelo de desenvolvimento nativo em nuvem para criação e execução de aplicações sem o gerenciamento de servidores(back-end) como o ***Ignews***
 
