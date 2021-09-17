@@ -14,7 +14,7 @@ Então páginas construídas desta forma, possuem grande performance, em outras 
 
 Um exemplo prático disto seria um **e-commerce**, a página do ***Magazine Luiza*** utiliza ***Next*** com ***SSG***, automaticamente se a visibilidade é maior, os acessos também são maiores e conversão dos acessos em vendas cresce exponencialmente.
 
-## Tecnlogias
+## Tecnologias
 
   - React
   - Next.js
